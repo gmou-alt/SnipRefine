@@ -1,0 +1,54 @@
+# 构建产物
+dist/
+*.zip
+
+# 本地测试产物
+_shots/
+*.tmp
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.sln.DotSettings.user
+
+# 编译器中间产物（本项目不使用，防止误提交）
+bin/
+obj/
+*.pdb
+
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# User settings and credentials
+SnapGrab.ini
+*.ini
+.env
+.env.*
+*.pem
+*.pfx
+*.key
+credentials*
+secrets*
+
+# Private runtime data
+*.log
+*.bak
+*.dmp
+*.ini.*
+screenshots/
+captures/
+
+# Optional local screenshot history
+saved-history.txt
+saved-history.txt.tmp
+
+# Maintainer-only publishing tooling
+一键发布GitHub.cmd
+scripts/publish.cmd
+scripts/publish-github.ps1
+docs/GITHUB-PUBLISH.md

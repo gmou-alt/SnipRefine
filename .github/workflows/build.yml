@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    name: Compile check
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        shell: cmd
+        run: scripts\build.cmd
+
+      - name: Windows regression tests
+        shell: cmd
+        run: tests\run.cmd
+
+      - name: Verify output
+        shell: pwsh
+        run: |
+          if (-not (Test-Path 'dist\SnipRefine.exe')) { throw 'dist\SnipRefine.exe was not produced' }
+          $f = Get-Item 'dist\SnipRefine.exe'
+          Write-Host ("OK: {0} ({1} bytes)" -f $f.FullName, $f.Length)

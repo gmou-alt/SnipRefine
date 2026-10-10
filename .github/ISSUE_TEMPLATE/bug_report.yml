@@ -1,0 +1,72 @@
+name: Bug 反馈
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量把信息填全，尤其是**复现步骤**和**显示器/缩放**，这两项对截图类问题最关键。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      description: 实际发生了什么？你期望的是什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 按 Ctrl+Alt+A 呼出遮罩
+        2. 拖动框选一块区域
+        3. 结果 ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: SnipRefine 版本
+      description: 主界面标题栏可见，或配置文件所在程序集版本
+      placeholder: 例如 1.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Windows 版本
+      placeholder: 例如 Windows 10 22H2 (19045) / Windows 11 23H2
+    validations:
+      required: true
+
+  - type: input
+    id: display
+    attributes:
+      label: 显示器与缩放比例
+      placeholder: 例如 单屏 1920x1080 @100%；或双屏 2560x1440@125% + 1920x1080@100%
+    validations:
+      required: true
+
+  - type: dropdown
+    id: run-mode
+    attributes:
+      label: 运行方式
+      options:
+        - 下载的 Release 里的 SnipRefine.exe
+        - 自己编译的 dist\SnipRefine.exe
+        - 免编译模式（scripts\SnipRefine.vbs）
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 截图 / 其它信息
+      description: 可以直接把图片拖进这个输入框
+    validations:
+      required: false
